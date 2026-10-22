@@ -1,30 +1,27 @@
-import fp from "fastify-plugin";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import fp from 'fastify-plugin'
+import pg from 'pg'
 
-// Load .env từ thư mục cha (vì bạn đang chạy node từ /src)
-dotenv.config({ path: "../.env" });
+const { Pool } = pg
 
-export default fp(async function dbConnector(fastify, opts) {
-  const mongoUri = process.env.MONGO_URI;
-  console.log("📦 Connecting MongoDB to:", mongoUri);
-
-  if (!mongoUri) {
-    console.error("❌ Missing MONGO_URI in environment variables!");
-    return;
-  }
+export default fp(async (fastify) => {
+  const pool = new Pool({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+  })
 
   try {
-    // ✅ Đảm bảo trả Promise để Fastify biết khi nào kết nối xong
-    await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 10000, // tránh treo quá lâu
-    });
+    await pool.query('SELECT 1')
 
-    console.log("✅ MongoDB connected successfully!");
-    fastify.decorate("mongoose", mongoose);
+    console.log('✅ Database connected')
+  } catch (error) {
+    console.error('❌ Database connection failed')
+    console.error(error)
 
-  } catch (err) {
-    console.error("❌ MongoDB connection failed:", err);
-    throw err; // ✅ QUAN TRỌNG: ném lỗi để Fastify biết plugin fail
+    throw error
   }
-});
+
+  fastify.decorate('db', pool)
+})

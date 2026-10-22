@@ -15,16 +15,18 @@ const fastify = Fastify({ logger: true })
 fastify.register(AutoLoad, { dir: join(__dirname, 'plugins') })
 fastify.register(AutoLoad, { dir: join(__dirname, 'routes') })
 
-
 /**
  * Run the server!
  */
 const start = async () => {
   try {
     await fastify.listen({ port: 3000 })
+
+    console.log(fastify.printRoutes())
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
   }
 }
+
 start()
