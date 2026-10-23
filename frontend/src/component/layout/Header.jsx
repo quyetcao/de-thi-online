@@ -5,6 +5,7 @@ import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 
 export default function Header() {
   return (
@@ -147,7 +148,7 @@ export default function Header() {
                       fontWeight: "600",
                     }}
                   >
-                    Trang chủ 
+                    Trang chủ
                   </Typography>
                   <Typography
                     sx={{
@@ -161,7 +162,7 @@ export default function Header() {
                       fontWeight: "600",
                     }}
                   >
-                    Tài Liệu Tu Học 
+                    Tài Liệu Tu Học
                   </Typography>
                   <Typography
                     sx={{
@@ -175,7 +176,9 @@ export default function Header() {
                       fontWeight: "600",
                     }}
                   >
-                    Thi Online
+                    <Link href="/bac-hoc" underline="none" >
+                      Thi Online
+                    </Link>
                   </Typography>
                   <Typography
                     sx={{
@@ -189,7 +192,7 @@ export default function Header() {
                       fontWeight: "600",
                     }}
                   >
-                    Lịch sử 
+                    Lịch sử
                   </Typography>
                   <Typography
                     sx={{
@@ -219,18 +222,17 @@ export default function Header() {
               alignItems: "center",
             }}
           >
-            <Box sx={{ flex: 1 }}>
-            </Box>
+            <Box sx={{ flex: 1 }}></Box>
             <Box sx={{ flex: 9, display: "flex", justifyContent: "center" }}>
               {" "}
-                <div className="logo">
-                  <img
-                    srcSet="/images/logo.png 200w, /images/logo.png 2000w"
-                    sizes="(max-width: 600px) 400px, 600px"
-                    src="/images/logo.png"
-                    alt="Logo"
-                  />
-                </div>
+              <div className="logo">
+                <img
+                  srcSet="/images/logo.png 200w, /images/logo.png 2000w"
+                  sizes="(max-width: 600px) 400px, 600px"
+                  src="/images/logo.png"
+                  alt="Logo"
+                />
+              </div>
             </Box>
           </Box>
         </Box>
@@ -242,11 +244,10 @@ export default function Header() {
             md: "-50px", // áp dụng cho màn hình >= md
           },
           marginBottom: {
-            md:"100px",
-          }
+            md: "100px",
+          },
         }}
-      >
-      </Box>
+      ></Box>
     </>
   );
 }

@@ -1,4 +1,7 @@
 import React from "react";
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchSectors } from '../../../redux/sectors/sectorThunk'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -22,7 +25,25 @@ const Item = styled(Paper)(({ theme }) => ({
   }),
 }));
 
+
 export default function HeaderListDS() {
+  const dispatch = useDispatch()
+
+  const { items, loading, error } = useSelector(
+    (state) => state.sectors
+  )
+
+  useEffect(() => {
+    dispatch(fetchSectors())
+  }, [dispatch])
+
+  if (loading) {
+    return <p>Đang tải danh sách ngành học...</p>
+  }
+
+  if (error) {
+    return <p>Lỗi: {error}</p>
+  }
   return (
     <>
       <div>
@@ -33,7 +54,13 @@ export default function HeaderListDS() {
         useFlexGap
         sx={{ flexWrap: 'wrap' }}
       >
-        <Item>  <Card sx={{ maxWidth: 345 }}>
+           { items.length === 0 ? (
+        <p>Chưa có ngành học.</p>
+      ) : (
+       items.map((sector) => (
+
+          <Item key={sector.id}>  
+          <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 100,
             backgroundSize: "20% 70%",
@@ -45,131 +72,10 @@ export default function HeaderListDS() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          BẬC MỞ MẮT
+          {sector.name}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card></Item>
-       <Item>  <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 100,
-            backgroundSize: "20% 70%",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-         }}
-        image="../../images/cap_hieu_tach_tung_anh/01_mo_mat.png"
-        title=""
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          BẬC MỞ MẮT
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card></Item>
-    <Item>  <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 100,
-            backgroundSize: "20% 70%",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-         }}
-        image="../../images/cap_hieu_tach_tung_anh/01_mo_mat.png"
-        title=""
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          BẬC MỞ MẮT
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card></Item>
-    <Item>  <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 100,
-            backgroundSize: "20% 70%",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-         }}
-        image="../../images/cap_hieu_tach_tung_anh/01_mo_mat.png"
-        title=""
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          BẬC MỞ MẮT
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card></Item>
-    <Item>  <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 100,
-            backgroundSize: "20% 70%",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-         }}
-        image="../../images/cap_hieu_tach_tung_anh/01_mo_mat.png"
-        title=""
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          BẬC MỞ MẮT
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card></Item>
-    <Item>  <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 100,
-            backgroundSize: "20% 70%",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-         }}
-        image="../../images/cap_hieu_tach_tung_anh/01_mo_mat.png"
-        title=""
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          BẬC MỞ MẮT
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {sector.description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -178,6 +84,7 @@ export default function HeaderListDS() {
       </CardActions>
     </Card>
     </Item>
+        )))}
       </Stack>
       </Box>
     </div>
