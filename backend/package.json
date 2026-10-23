@@ -13,6 +13,7 @@
   "description": "",
   "dependencies": {
     "@fastify/autoload": "^6.3.1",
+    "@fastify/cors": "^11.3.1",
     "@fastify/mongodb": "^9.0.2",
     "@fastify/postgres": "^6.0.2",
     "dotenv": "^17.2.3",
