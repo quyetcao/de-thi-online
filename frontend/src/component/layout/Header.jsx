@@ -176,7 +176,7 @@ export default function Header() {
                       fontWeight: "600",
                     }}
                   >
-                    <Link href="/bac-hoc" underline="none" >
+                    <Link href="/nganh-hoc" underline="none" >
                       Thi Online
                     </Link>
                   </Typography>

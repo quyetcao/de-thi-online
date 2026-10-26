@@ -14,4 +14,4 @@ export async function getAllSectors() {
   }
 
   return result.data
-}
+}   
