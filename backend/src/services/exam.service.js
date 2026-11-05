@@ -7,10 +7,13 @@ export default async function examService(fastify) {
 /// Lấy đề thi theo ID 
   const getExamById = async (id) => {
   const exam = await fastify.examRepository.getExamById(id)
-
   return exam
 }
-
+/// Lấy danh sách đề thi theo LevelID
+  const getListExamByLevelId = async (levelID) => {
+    const listexam = await fastify.examRepository.getListExamByLevelId(levelID)
+    return listexam
+  }
 
 ////
 const getQuestionsByExamId = async (examId) => {
@@ -23,6 +26,7 @@ const getQuestionsByExamId = async (examId) => {
   return {
     getAllExams,
     getExamById,
-    getQuestionsByExamId
+    getQuestionsByExamId,
+    getListExamByLevelId
   }
 }

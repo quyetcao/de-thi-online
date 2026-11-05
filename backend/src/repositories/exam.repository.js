@@ -30,6 +30,31 @@ export default async function examRepository(fastify) {
     return result.rows
   }
 
+  // lấy ds đề thi theo levelId
+  const getListExamByLevelId = async (levelID) => {
+    const result = await fastify.db.query(
+      `
+        SELECT
+          e.id,
+          e.title,
+          e.description,
+          e.duration_minutes,
+          e.passing_score,
+          e.show_result,
+          e.show_answers_after_submit,
+          e.is_active,
+          e.sort_order
+        FROM exams e
+        WHERE e.level_id = $1
+          AND e.is_active = true
+           ORDER BY e.sort_order, e.id
+      `,
+      [levelID]
+    )
+
+    return result.rows
+  }
+
   // Lấy một đề thi theo ID
   const getExamById = async (id) => {
     const result = await fastify.db.query(
@@ -120,5 +145,6 @@ return questions
     getAllExams,
     getExamById,
     getQuestionsByExamId,
+    getListExamByLevelId
   }
 }
