@@ -10,6 +10,37 @@ export default async function examRoutes(fastify) {
     })
   })
 
+   // API lấy chi tiết đề thi theo ID của bậc học ( levelID)
+  fastify.get('/api/exams/level/:levelID', async (request, reply) => {
+    const levelID = Number(request.params.levelID)
+
+    // Bước 1: Kiểm tra ID
+    if (!Number.isInteger(levelID) || levelID <= 0) {
+      return reply.code(400).send({
+        success: false,
+        message: 'levelID Bậc Học không hợp lệ',
+      })
+    }
+
+    // Bước 2: Gọi Service lấy đề thi
+    const listexam = await fastify.examService.getListExamByLevelId(levelID)
+
+    // Bước 3: Không tìm thấy đề thi
+    if (!listexam) {
+      return reply.code(404).send({
+        success: false,
+        message: 'Không tìm thấy DS đề thi',
+      })
+    }
+
+    // Bước 4: Trả dữ liệu
+    return reply.send({
+      success: true,
+      data: listexam,
+    })
+  })
+
+
   // API lấy chi tiết đề thi theo ID
   fastify.get('/api/exams/:id', async (request, reply) => {
     const id = Number(request.params.id)
