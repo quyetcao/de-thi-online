@@ -6,6 +6,10 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
+import "@fontsource/open-sans/latin-ext-400.css";
+import "@fontsource/open-sans/latin-ext-500.css";
+import "@fontsource/open-sans/latin-ext-600.css";
+import "@fontsource/open-sans/latin-ext-700.css";
 
 export default function Header() {
   return (
@@ -18,7 +22,7 @@ export default function Header() {
           alignItems: "center",
         }}
       >
-        <div style={{ fontFamily: '"Borel", cursive' }}>
+        <div>
           <Grid
             container
             sx={{
@@ -52,7 +56,7 @@ export default function Header() {
             </Grid>
           </Grid>
         </div>
-        <div style={{ fontFamily: '"Borel", cursive' }}>
+        <div>
           <Grid
             container
             sx={{
@@ -101,7 +105,6 @@ export default function Header() {
         }}
       >
         <Box
-          // className="container"
           sx={{
             paddingLeft: { xs: 0, md: "100px" },
             paddingRight: { xs: 0, md: "100px" },
@@ -128,38 +131,45 @@ export default function Header() {
               </Grid>
             </Box>
             <Box sx={{ flex: 7 }}>
-              <Grid size={{ xs: 6, md: 8 }}>
+              <Grid size={{ xs: 6, md: 12 }}>
                 <Box
                   sx={{
                     display: "flex",
+                    justifyContent:"space-between",
                     alignItems: "center",
+                     gap: 2,
+                     width: "80%",
                     textAlign: "center",
                   }}
                 >
                   <Typography
                     sx={{
                       minWidth: 110,
-                      fontSize: "14px",
+                      fontSize: "20px",
+                       fontFamily: '"Open Sans", sans-serif !important',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
                         cursor: "pointer",
                       },
-                      fontWeight: "600",
+                      fontWeight: "400",
                     }}
                   >
-                    Trang chủ
+                    <Link href="/" underline="none" >
+                       Trang chủ
+                    </Link>
                   </Typography>
                   <Typography
                     sx={{
                       minWidth: 110,
-                      fontSize: "14px",
+                      fontSize: "20px",
+                       fontFamily: '"Open Sans", sans-serif !important',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
                         cursor: "pointer",
                       },
-                      fontWeight: "600",
+                      fontWeight: "400",
                     }}
                   >
                     Tài Liệu Tu Học
@@ -167,13 +177,14 @@ export default function Header() {
                   <Typography
                     sx={{
                       minWidth: 110,
-                      fontSize: "14px",
+                       fontFamily: '"Open Sans", sans-serif !important',
+                      fontSize: "20px",
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
                         cursor: "pointer",
                       },
-                      fontWeight: "600",
+                      fontWeight: "400",
                     }}
                   >
                     <Link href="/nganh-hoc" underline="none" >
@@ -183,13 +194,14 @@ export default function Header() {
                   <Typography
                     sx={{
                       minWidth: 110,
-                      fontSize: "14px",
+                      fontSize: "20px",
+                     fontFamily: '"Open Sans", sans-serif !important',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
                         cursor: "pointer",
                       },
-                      fontWeight: "600",
+                      fontWeight: "400",
                     }}
                   >
                     Lịch sử
@@ -197,13 +209,14 @@ export default function Header() {
                   <Typography
                     sx={{
                       minWidth: 110,
-                      fontSize: "14px",
+                   fontFamily: '"Open Sans", sans-serif !important',
+                      fontSize: "20px",
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
                         cursor: "pointer",
                       },
-                      fontWeight: "600",
+                      fontWeight: "400",
                     }}
                   >
                     Hình Ảnh SH
@@ -240,7 +253,7 @@ export default function Header() {
       <Box
         sx={{
           marginTop: {
-            xs: "-45px", // áp dụng cho màn hình nhỏ
+            xs: "5px", // áp dụng cho màn hình nhỏ
             md: "-50px", // áp dụng cho màn hình >= md
           },
           marginBottom: {
