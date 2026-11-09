@@ -13,22 +13,22 @@ const newsData = [
   {
     id: 1,
     title: "Gia đình Phật tử Mỹ Lợi tổ chức sinh hoạt định kỳ",
-    image: "../../public/images/banner/banner1.jpg",
+    image: "/images/banner/banner1.jpg",
   },
   {
     id: 2,
     title: "Lễ Phật và sinh hoạt tu học tại chùa Mỹ Lợi",
-    image: "../../public/images/banner/banner1.jpg",
+    image: "/images/banner/banner1.jpg",
   },
   {
     id: 3,
     title: "Hoạt động trại và tinh thần đoàn kết áo Lam",
-    image: "../../public/images/banner/banner1.jpg",
+    image: "/images/banner/banner1.jpg",
   },
   {
     id: 4,
     title: "Tuổi trẻ áo Lam với những hoạt động thiện nguyện",
-    image: "../../public/images/banner/banner1.jpg",
+    image: "/images/banner/banner1.jpg",
   },
 ];
 
@@ -36,7 +36,7 @@ function NewsList() {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "90%",
         margin: "0 auto",
         padding: {
           xs: "12px",
@@ -54,7 +54,7 @@ function NewsList() {
             <Card
               sx={{
                 height: "100%",
-                borderRadius: "12px",
+                borderRadius: "10px",
                 overflow: "hidden",
                 boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
                 transition: "0.3s",

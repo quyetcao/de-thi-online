@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
     <Box sx={{  width: {xs:"100%",md:"79%"} ,  margin: "0 auto", }}>
-    <AutoPlay></AutoPlay>
+        <AutoPlay></AutoPlay>
   <Box
   sx={{
     height: {
@@ -31,7 +31,8 @@ export default function HomePage() {
       md: "25px",
     },
 
-    fontFamily: "'Lexend', Arial, sans-serif",
+    fontFamily: '"Lexend", sans-serif',
+    fontWeight: 400,
     padding: {
       xs: "0 12px",
       sm: "0 20px",
