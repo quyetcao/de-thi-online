@@ -5,6 +5,7 @@ export default function FooterPage() {
  <footer
 
   style={{
+     fontFamily:'"Oswald" , sans-serif',
     width: "100%",
     marginTop: "50px",
     background: "linear-gradient(135deg, #B8D8E8, #D9EAF2, #A9CDDF)",
@@ -28,7 +29,7 @@ export default function FooterPage() {
   >
     <h2 style={{
       color: "#174D70",
-      fontSize: "22px",
+      fontSize: "18px",
       margin: 0
     }}>
       🪷 GIA ĐÌNH PHẬT TỬ MỸ LỢI
@@ -40,12 +41,12 @@ export default function FooterPage() {
       backgroundColor: "#397FA5"
     }} />
 
-    <h3 style={{ lineHeight: 1.8, margin: 0 }}>
+    <h4 style={{ lineHeight: 1.8, margin: 0 }}>
       Chào mừng quý anh chị em Lam viên ghé thăm
       trang nhà Gia đình Phật tử Mỹ Lợi.
       Nơi lưu giữ những hình ảnh, hoạt động và
       kỷ niệm sinh hoạt của đơn vị.
-    </h3>
+    </h4>
 
     <p style={{ color: "#174D70", margin: 0, fontWeight: "500" }}>
       🌿 Sen nở trong tâm – Tình Lam trong tim.
@@ -69,7 +70,7 @@ export default function FooterPage() {
   >
     <h2 style={{
       color: "#174D70",
-      fontSize: "21px",
+      fontSize: "18px",
       margin: 0
     }}>
       📍 THÔNG TIN SINH HOẠT
@@ -78,23 +79,24 @@ export default function FooterPage() {
     <div style={{
       width: "65px",
       height: "3px",
-      backgroundColor: "#397FA5"
+      backgroundColor: "#397FA5",
+      fontFamily:'"Oswald" , sans-serif',
     }} />
 
-    <h3 style={{ lineHeight: 1.7, margin: 0 }}>
+    <p style={{ lineHeight: 1.7, margin: 0 }}>
       <strong>Địa điểm:</strong><br />
       Chùa Mỹ Lợi - Niệm Phật Đường Chùa Mỹ Lợi
-    </h3>
+    </p>
 
-    <h3 style={{ lineHeight: 1.7, margin: 0 }}>
+    <p style={{ lineHeight: 1.7, margin: 0 }}>
       <strong>Địa chỉ:</strong><br />
       Thôn Mỹ Lộc - Xã Vinh Lộc - Thành phố Huế
-    </h3>
+    </p>
 
-    <h3 style={{ lineHeight: 1.7, margin: 0 }}>
+    <p style={{ lineHeight: 1.7, margin: 0 }}>
       <strong>Thời gian:</strong><br />
       13:00 - 16:30, Chủ Nhật hàng tuần
-    </h3>
+    </p>
   </div>
 
   {/* BẢN QUYỀN */}

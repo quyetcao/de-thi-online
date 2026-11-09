@@ -10,8 +10,16 @@ import "@fontsource/open-sans/latin-ext-400.css";
 import "@fontsource/open-sans/latin-ext-500.css";
 import "@fontsource/open-sans/latin-ext-600.css";
 import "@fontsource/open-sans/latin-ext-700.css";
+import MenuIcon from "@mui/icons-material/Menu";
+import TemporaryDrawer from "./menubar";
+import IconButton from "@mui/material/IconButton";
+import { useState } from "react";
+<style>
+@import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Oswald:wght@200..700&display=swap');
+</style>
 
 export default function Header() {
+    const [open, setOpen] = useState(false);
   return (
     <>
       <Stack
@@ -20,6 +28,7 @@ export default function Header() {
         sx={{
           justifyContent: "center",
           alignItems: "center",
+          fontFamily:"Oswald , sans-serif",
         }}
       >
         <div>
@@ -135,10 +144,10 @@ export default function Header() {
                 <Box
                   sx={{
                     display: "flex",
-                    justifyContent:"space-between",
+                    justifyContent: "space-between",
                     alignItems: "center",
-                     gap: 2,
-                     width: "80%",
+                    gap: 2,
+                    width: "80%",
                     textAlign: "center",
                   }}
                 >
@@ -146,7 +155,7 @@ export default function Header() {
                     sx={{
                       minWidth: 110,
                       fontSize: "20px",
-                       fontFamily: '"Open Sans", sans-serif !important',
+                      fontFamily:'"Oswald" , sans-serif',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
@@ -155,15 +164,15 @@ export default function Header() {
                       fontWeight: "400",
                     }}
                   >
-                    <Link href="/" underline="none" >
-                       Trang chủ
+                    <Link href="/" underline="none">
+                      Trang chủ
                     </Link>
                   </Typography>
                   <Typography
                     sx={{
                       minWidth: 110,
                       fontSize: "20px",
-                       fontFamily: '"Open Sans", sans-serif !important',
+                       fontFamily:'"Oswald" , sans-serif',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
@@ -177,7 +186,7 @@ export default function Header() {
                   <Typography
                     sx={{
                       minWidth: 110,
-                       fontFamily: '"Open Sans", sans-serif !important',
+                       fontFamily:'"Oswald" , sans-serif',
                       fontSize: "20px",
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
@@ -187,7 +196,7 @@ export default function Header() {
                       fontWeight: "400",
                     }}
                   >
-                    <Link href="/nganh-hoc" underline="none" >
+                    <Link href="/nganh-hoc" underline="none">
                       Thi Online
                     </Link>
                   </Typography>
@@ -195,7 +204,7 @@ export default function Header() {
                     sx={{
                       minWidth: 110,
                       fontSize: "20px",
-                     fontFamily: '"Open Sans", sans-serif !important',
+                      fontFamily:'"Oswald" , sans-serif',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
@@ -209,7 +218,7 @@ export default function Header() {
                   <Typography
                     sx={{
                       minWidth: 110,
-                   fontFamily: '"Open Sans", sans-serif !important',
+                      fontFamily:'"Oswald" , sans-serif',
                       fontSize: "20px",
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
@@ -235,7 +244,11 @@ export default function Header() {
               alignItems: "center",
             }}
           >
-            <Box sx={{ flex: 1 }}></Box>
+            <Box sx={{ flex: 1 }}>
+              <IconButton onClick={() => setOpen(true)}>
+                <MenuIcon />
+              </IconButton>
+            </Box>
             <Box sx={{ flex: 9, display: "flex", justifyContent: "center" }}>
               {" "}
               <div className="logo">
@@ -250,6 +263,10 @@ export default function Header() {
           </Box>
         </Box>
       </div>
+       <TemporaryDrawer
+        open={open}
+        setOpen={setOpen}
+      />
       <Box
         sx={{
           marginTop: {

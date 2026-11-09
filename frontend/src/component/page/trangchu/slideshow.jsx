@@ -11,13 +11,13 @@ function AutoPlay() {
     slidesToScroll: 1,
     autoplay: true,
     speed: 5000,
-    autoplaySpeed: 3000,
-    cssEase: "linear"
+    autoplaySpeed: 10,
+    cssEase: "ease-in-out"
   };
   return (
     <div className="slider-container">
       <Slider {...settings}>
-        <div style={{width:'100%',
+        <div style={{width:'90%',
                       height:'40%',
         }}>
          <img src="/images/banner/banner11.jpg" alt="" style={{
@@ -26,7 +26,7 @@ function AutoPlay() {
       display: "block",
     }} />
         </div>
-        <div style={{width:'100%',
+        <div style={{width:'90%',
                       height:'40%',
         }}>
          <img src="/images/banner/banner11.jpg" alt="" style={{
@@ -35,7 +35,7 @@ function AutoPlay() {
       display: "block",
     }} />
         </div>
-        <div style={{width:'100%',
+        <div style={{width:'90%',
                       height:'40%',
         }}>
          <img src="/images/banner/banner11.jpg" alt="" style={{

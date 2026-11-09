@@ -26,7 +26,7 @@ export default function TitlebarBelowImageList() {
 
 const itemData = [
   {
-    img: '../../public/images/banner/banner1.jpg',
+    img: '/images/banner/banner1.jpg',
     title: 'Breakfast',
     author: '@bkristastucchio',
   },
