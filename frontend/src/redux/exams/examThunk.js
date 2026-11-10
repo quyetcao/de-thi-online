@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { getLevelsBySectorId } from '../../services/levelApi'
+import { getExamsByLevelId } from '../../services/examApi'
 
-export const fetchLevels = createAsyncThunk(
+export const fetchExams = createAsyncThunk(
   'levels/fetchLevels',
-  async (sectorId, { rejectWithValue }) => {
+  async (levelId, { rejectWithValue }) => {
     try {
-      const levels = await getLevelsBySectorId(sectorId)
+      const exams = await getExamsByLevelId(levelId)
 
-      return levels
+      return exams
     } catch (error) {
       return rejectWithValue(
         error.message || 'Không thể lấy danh sách bậc học'

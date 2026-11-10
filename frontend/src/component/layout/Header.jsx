@@ -181,7 +181,9 @@ export default function Header() {
                       fontWeight: "400",
                     }}
                   >
-                    Tài Liệu Tu Học
+                    <Link href="/tai-lieu-tu-hoc" underline="none">
+                      Tài Liệu Tu Học
+                    </Link>
                   </Typography>
                   <Typography
                     sx={{
@@ -213,7 +215,9 @@ export default function Header() {
                       fontWeight: "400",
                     }}
                   >
-                    Lịch sử
+                    <Link href="/lich-su-gd" underline="none">
+                      Lịch Sử
+                    </Link>
                   </Typography>
                   <Typography
                     sx={{
@@ -228,7 +232,9 @@ export default function Header() {
                       fontWeight: "400",
                     }}
                   >
-                    Hình Ảnh SH
+                    <Link href="/hinh-anh" underline="none">
+                     Hình Ảnh SH
+                    </Link>
                   </Typography>
                 </Box>
               </Grid>
