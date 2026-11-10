@@ -29,7 +29,7 @@ export default async function examRoutes(fastify) {
     if (!listexam) {
       return reply.code(404).send({
         success: false,
-        message: 'Không tìm thấy DS đề thi',
+        message: 'Không tìm thấy DS đề thi theo bậc học',
       })
     }
 

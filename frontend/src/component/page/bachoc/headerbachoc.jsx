@@ -15,6 +15,7 @@ import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -107,7 +108,13 @@ console.log('Sector ID:', sectorId)
 
                 <CardActions>
                   <Button size="small">Share</Button>
-                  <Button size="small">Learn More</Button>
+                      <Button
+                        size="small"
+                        component={Link}
+                        to={`/danh-sach-dt/${level.id}`}
+                      >
+                        Xem DS Đề Thi
+                      </Button>
                 </CardActions>
               </Card>
             </Item>
