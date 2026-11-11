@@ -4,11 +4,13 @@ import Drawer from '@mui/material/Drawer';
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Grid from '@mui/material/Grid';
-<style>
-@import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Oswald:wght@200..700&display=swap');
-</style>
+import { useAuth } from '../../context/AuthContext'
+import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export default function TemporaryDrawer({ open, setOpen }) {
-
+    const { user, logout } = useAuth()
+  const navigate = useNavigate()
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
@@ -62,6 +64,36 @@ export default function TemporaryDrawer({ open, setOpen }) {
         </Typography>
       ))}
     </Box>
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+  {user ? (
+    <>
+      <Typography sx={{ fontFamily: 'Oswald, sans-serif' }}>
+        Xin chào, {user.full_name || user.fullName || user.username}
+      </Typography>
+
+      {user.role === 'admin' && (
+        <Link href="/admin" underline="none">
+          Quản trị
+        </Link>
+      )}
+
+      <Button
+  onClick={() => {
+    logout()
+    navigate('/')
+  }}
+  color="error"
+  size="small"
+>
+  Đăng xuất
+</Button>
+    </>
+  ) : (
+    <Link href="/login" underline="none">
+      <AccountCircleIcon />
+    </Link>
+  )}
+</Box>
   </Grid>
 </Box>
      
