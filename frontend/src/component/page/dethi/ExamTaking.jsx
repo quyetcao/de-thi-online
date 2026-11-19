@@ -294,7 +294,6 @@ export default function ExamTaking() {
                 variant="contained"
                 color="success"
                 sx={{ mt: 4, py: 1.5, borderRadius: 2 }}
-                onClick={handleSubmitExam}
               >
                 Nộp bài thi
               </Button>
