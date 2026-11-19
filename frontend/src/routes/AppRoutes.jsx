@@ -10,6 +10,10 @@ import Register from '../component/page/user/register'
 import { useAuth } from '../context/AuthContext'
 import AdminDashboard from '../component/admin/AdminDashboard'
 
+
+import ExamDetail from '../component/page/dethi/examDetail'
+import ExamTaking from '../component/page/dethi/ExamTaking'
+
 function ProtectedRoute({ children }) {
   const { isAuthenticated } = useAuth()
 
@@ -52,8 +56,28 @@ export default function AppRoutes() {
       />
       <Route
         path="/danh-sach-dt/:levelId"
-        element={<ListDeThiTheoBacHoc />}
+        element={
+       <ProtectedRoute>
+        <ListDeThiTheoBacHoc />
+        </ProtectedRoute>
+   }
       />
+      <Route
+  path="/de-thi/:id"
+  element={
+    <ProtectedRoute>
+      <ExamDetail />
+    </ProtectedRoute>
+  }
+/>
+<Route
+  path="/lam-bai/:examId"
+  element={
+    <ProtectedRoute>
+      <ExamTaking />
+    </ProtectedRoute>
+  }
+/>
        <Route
     path="*"
     element={<NotFound />}

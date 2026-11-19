@@ -74,7 +74,7 @@ export default async function examRoutes(fastify) {
   // Lấy danh sách câu hỏi và đáp án theo ID đề thi
 fastify.get('/api/exams/:id/questions', async (request, reply) => {
   const examId = Number(request.params.id)
-
+  console.log("backend ", examId)
   if (!Number.isInteger(examId) || examId <= 0) {
     return reply.code(400).send({
       success: false,
