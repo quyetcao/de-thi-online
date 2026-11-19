@@ -109,10 +109,17 @@ export default async function examRepository(fastify) {
       `,
       [examId]
     )
+    //$1 là vị trí của tham số thứ nhất trong câu SQL.
+    //[examId] là mảng chứa giá trị truyền vào để thay thế $1.
 
     const questions = []
 const questionMap = new Map()
-
+// Map là một kiểu dữ liệu trong JavaScript, cho phép lưu trữ dữ liệu theo cặp:
+// - Key: Khóa.
+// - Value: Giá trị.
+// result.rows: Danh sách dữ liệu PostgreSQL trả về.
+// for...of: Vòng lặp qua từng phần tử.
+// row: Đại diện cho một dòng dữ liệu trong mỗi lượt lặp.
 for (const row of result.rows) {
   let question = questionMap.get(row.question_id)
 

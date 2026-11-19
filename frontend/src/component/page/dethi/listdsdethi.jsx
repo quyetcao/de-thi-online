@@ -202,7 +202,7 @@ console.log('Level ID:', levelId)
             {/* Nút làm đề */}
             <Button
               variant="contained"
-              onClick={() => navigate(`/lam-bai/${exam.id}`)}
+              onClick={() => navigate(`/de-thi/${exam.id}`)}
               fullWidth
               sx={{
                 backgroundColor: "#16a34a",
