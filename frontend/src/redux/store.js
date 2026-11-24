@@ -5,6 +5,11 @@ import levelReducer from './levels/levelSlice'
 import examReducer from './exams/examSlice'
 import examDetailReducer from './exams/examDetailSlice'
 import examQuestionReducer from './exams/examQuestionSlice'
+import examAttemptReducer from './exams/examAttemptSlice'
+import examAttemptDetailReducer
+  from "./exams/examAttemptDetailSlice";
+import userAttemptHistoryReducers from "./user/userSlice"
+
 
 const store = configureStore({
   reducer: {
@@ -13,6 +18,9 @@ const store = configureStore({
     exams: examReducer,
     examDetail: examDetailReducer,
     examQuestion: examQuestionReducer,
+    examAttempt: examAttemptReducer,
+    examAttemptDetail: examAttemptDetailReducer,
+    userAttemptHistory:userAttemptHistoryReducers,
   },
 })
 
