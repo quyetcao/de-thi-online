@@ -14,19 +14,21 @@ import MenuIcon from "@mui/icons-material/Menu";
 import TemporaryDrawer from "./menubar";
 import IconButton from "@mui/material/IconButton";
 import { useState } from "react";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useAuth } from '../../context/AuthContext'
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Oswald:wght@200..700&display=swap');
-</style>
+  @import
+  url('https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Oswald:wght@200..700&display=swap');
+</style>;
 
 export default function Header() {
-    const [open, setOpen] = useState(false);
-    const { user, logout } = useAuth()
-const navigate = useNavigate()
+  const [open, setOpen] = useState(false);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   return (
     <>
       <Stack
@@ -35,7 +37,7 @@ const navigate = useNavigate()
         sx={{
           justifyContent: "center",
           alignItems: "center",
-          fontFamily:"Oswald , sans-serif",
+          fontFamily: "Oswald , sans-serif",
         }}
       >
         <div>
@@ -162,7 +164,7 @@ const navigate = useNavigate()
                     sx={{
                       minWidth: 110,
                       fontSize: "20px",
-                      fontFamily:'"Oswald" , sans-serif',
+                      fontFamily: '"Oswald" , sans-serif',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
@@ -179,7 +181,7 @@ const navigate = useNavigate()
                     sx={{
                       minWidth: 110,
                       fontSize: "20px",
-                       fontFamily:'"Oswald" , sans-serif',
+                      fontFamily: '"Oswald" , sans-serif',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
@@ -195,7 +197,7 @@ const navigate = useNavigate()
                   <Typography
                     sx={{
                       minWidth: 110,
-                       fontFamily:'"Oswald" , sans-serif',
+                      fontFamily: '"Oswald" , sans-serif',
                       fontSize: "20px",
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
@@ -213,7 +215,7 @@ const navigate = useNavigate()
                     sx={{
                       minWidth: 110,
                       fontSize: "20px",
-                      fontFamily:'"Oswald" , sans-serif',
+                      fontFamily: '"Oswald" , sans-serif',
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
                         color: "#E68216",
@@ -229,7 +231,7 @@ const navigate = useNavigate()
                   <Typography
                     sx={{
                       minWidth: 110,
-                      fontFamily:'"Oswald" , sans-serif',
+                      fontFamily: '"Oswald" , sans-serif',
                       fontSize: "20px",
                       transition: "color 0.5s ease-in-out",
                       ":hover": {
@@ -240,40 +242,41 @@ const navigate = useNavigate()
                     }}
                   >
                     <Link href="/hinh-anh" underline="none">
-                     Hình Ảnh SH
+                      Hình Ảnh SH
                     </Link>
                   </Typography>
-               
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-  {user ? (
-    <>
-      <Typography sx={{ fontFamily: 'Oswald, sans-serif' }}>
-        Xin chào, {user.full_name || user.fullName || user.username}
-      </Typography>
 
-      {user.role === 'admin' && (
-        <Link href="/admin" underline="none">
-          Quản trị
-        </Link>
-      )}
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1}}>
+                    {user ? (
+                      <>
+                        <Typography sx={{ fontFamily: "Oswald, sans-serif" }}>
+                          Xin chào,{" "}
+                          {user.full_name || user.fullName || user.username}
+                        </Typography>
 
-      <Button
-  onClick={() => {
-    logout()
-    navigate('/')
-  }}
-  color="error"
-  size="small"
->
-  Đăng xuất
-</Button>
-    </>
-  ) : (
-    <Link href="/login" underline="none">
-      <AccountCircleIcon />
-    </Link>
-  )}
-</Box>
+                        {user.role === "admin" && (
+                          <Link href="/admin" underline="none">
+                            Quản trị
+                          </Link>
+                        )}
+
+                        <Button
+                          onClick={() => {
+                            logout();
+                            navigate("/");
+                          }}
+                          color="error"
+                          size="small"
+                        >
+                          <LogoutIcon></LogoutIcon>
+                        </Button>
+                      </>
+                    ) : (
+                      <Link href="/login" underline="none">
+                        <AccountCircleIcon />
+                      </Link>
+                    )}
+                  </Box>
                 </Box>
               </Grid>
             </Box>
@@ -307,10 +310,7 @@ const navigate = useNavigate()
           </Box>
         </Box>
       </div>
-       <TemporaryDrawer
-        open={open}
-        setOpen={setOpen}
-      />
+      <TemporaryDrawer open={open} setOpen={setOpen} />
       <Box
         sx={{
           marginTop: {
